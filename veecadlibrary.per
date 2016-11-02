@@ -1,0 +1,166 @@
+[Version]
+Product,2
+File,16
+{
+"Config" : {
+  "NetImportFormat" : "Protel"
+},
+"Board" : {
+  "Width" : 30,
+  "Height" : 34,
+  "Pattern" : "Strip"
+},
+"CelledOutlines" : [
+  { "Name" : "*Dummy*", "Locked" : false,
+    "Rows" : [
+    ["Body","Free","Body"],
+    ["Body","Body","Body"]
+    ]
+  },
+  { "Name" : "1734086-2", "Locked" : true,
+    "Rows" : [
+    ["Body",{"Pin" : "2"},{"Pin" : "1"},"Body"],
+    ["Body",{"Pin" : "3"},{"Pin" : "4"},"Body"],
+    ["Body","Body","Body","Body"],
+    ["Body","Body","Body","Body"],
+    ["Body","Body","Body","Body"],
+    ["Body","Body","Body","Body"],
+    ["Body","Body","Body","Body"]
+    ]
+  },
+  { "Name" : "644456-6", "Locked" : true,
+    "Rows" : [
+    [{"Pin" : "1"}],
+    [{"Pin" : "2"}],
+    [{"Pin" : "3"}],
+    [{"Pin" : "4"}],
+    [{"Pin" : "5"}],
+    [{"Pin" : "6"}]
+    ]
+  },
+  { "Name" : "DIP-28", "Locked" : true,
+    "Rows" : [
+    [{"Pin" : "1"},"Body","Body",{"Pin" : "28"}],
+    [{"Pin" : "2"},"Body","Body",{"Pin" : "27"}],
+    [{"Pin" : "3"},"Body","Body",{"Pin" : "26"}],
+    [{"Pin" : "4"},"Body","Body",{"Pin" : "25"}],
+    [{"Pin" : "5"},"Body","Body",{"Pin" : "24"}],
+    [{"Pin" : "6"},"Body","Body",{"Pin" : "23"}],
+    [{"Pin" : "7"},"Body","Body",{"Pin" : "22"}],
+    [{"Pin" : "8"},"Body","Body",{"Pin" : "21"}],
+    [{"Pin" : "9"},"Body","Body",{"Pin" : "20"}],
+    [{"Pin" : "10"},"Body","Body",{"Pin" : "19"}],
+    [{"Pin" : "11"},"Body","Body",{"Pin" : "18"}],
+    [{"Pin" : "12"},"Body","Body",{"Pin" : "17"}],
+    [{"Pin" : "13"},"Body","Body",{"Pin" : "16"}],
+    [{"Pin" : "14"},"Body","Body",{"Pin" : "15"}]
+    ]
+  },
+  { "Name" : "DIP-8", "Locked" : true,
+    "Rows" : [
+    [{"Pin" : "1"},"Body","Body",{"Pin" : "8"}],
+    [{"Pin" : "2"},"Body","Body",{"Pin" : "7"}],
+    [{"Pin" : "3"},"Body","Body",{"Pin" : "6"}],
+    [{"Pin" : "4"},"Body","Body",{"Pin" : "5"}]
+    ]
+  },
+  { "Name" : "HDR-1x4T\/2_54\/10x2", "Locked" : true,
+    "Rows" : [
+    [{"Pin" : "1"}],
+    [{"Pin" : "2"}],
+    [{"Pin" : "3"}],
+    [{"Pin" : "4"}]
+    ]
+  },
+  { "Name" : "HDR-1x6T\/2_54\/15x2", "Locked" : true,
+    "Rows" : [
+    [{"Pin" : "1"}],
+    [{"Pin" : "2"}],
+    [{"Pin" : "3"}],
+    [{"Pin" : "4"}],
+    [{"Pin" : "5"}],
+    [{"Pin" : "6"}]
+    ]
+  },
+  { "Name" : "TO-92", "Locked" : true,
+    "Rows" : [
+    [{"Pin" : "1"},"Body"],
+    [{"Pin" : "2"},"Body"],
+    [{"Pin" : "3"},"Body"]
+    ]
+  }
+],
+"LeadedOutlines" : [
+  { "Name" : "RES-7_62\/4x1_5", "Locked" : true,
+    "BodyLength" : 3, "BodyWidth" : 1,
+    "Pin0Name" : "1", "Pin1Name" : "2", "ShowReference" : false
+  }
+],
+"RadialOutlines" : [
+  { "Name" : "CAP-2_54\/6_6x3", "Locked" : false,
+    "LeadSpacing" : 2, "Diameter" : 3,
+    "Pin0Name" : "1", "Pin1Name" : "2"
+  }
+],
+"CustomOutlines" : [
+  { "Name" : "HC-49U", "Locked" : true,
+    "Pins" : [
+    { "Name" : "1", "X5" : 2, "Y5" : 2 },
+    { "Name" : "2", "X5" : 12, "Y5" : 2 }
+    ],
+    "Lines" : [
+    { "X5" : 0, "Y5" : 0, "DX5" : 14, "DY5" : 0},
+    { "X5" : 14, "Y5" : 0, "DX5" : 0, "DY5" : 5},
+    { "X5" : 14, "Y5" : 5, "DX5" : -14, "DY5" : 0},
+    { "X5" : 0, "Y5" : 0, "DX5" : 0, "DY5" : 5}
+    ]
+  }
+],
+"SmdOutlines" : [
+],
+"Components" : [
+  { "Designator" : "*Dummy*", "Value" : "PIC32MX250F128B", "Outline" : "DIP-28",
+  "X1000" : 5000, "Y1000" : 5000, "EndDeltaX" : 0, "EndDeltaY" : 1,
+  "Text" : { "X" : 0, "Y" : 0, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "J", "Value" : "??", "Outline" : "HDR-1x6T\/2_54\/15x2",
+  "X1000" : 18000, "Y1000" : 4000, "EndDeltaX" : 0, "EndDeltaY" : 1,
+  "Text" : { "X" : 0, "Y" : 0, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "J", "Value" : "644456-6", "Outline" : "644456-6",
+  "X1000" : 11000, "Y1000" : 8000, "EndDeltaX" : 0, "EndDeltaY" : 1,
+  "Text" : { "X" : 0, "Y" : 0, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "J", "Value" : "??", "Outline" : "HDR-1x4T\/2_54\/10x2",
+  "X1000" : 15000, "Y1000" : 3000, "EndDeltaX" : 0, "EndDeltaY" : 1,
+  "Text" : { "X" : 0, "Y" : 0, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "R", "Value" : "RES", "Outline" : "RES-7_62\/4x1_5",
+  "X1000" : 2000, "Y1000" : 4000, "EndDeltaX" : 0, "EndDeltaY" : 5,
+  "Text" : { "X" : 0, "Y" : 0, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "U", "Value" : "MCP1700_TO", "Outline" : "*Dummy*",
+  "X1000" : 16000, "Y1000" : 22000, "EndDeltaX" : 0, "EndDeltaY" : 1,
+  "Text" : { "X" : 0, "Y" : 0, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  },
+  { "Designator" : "U", "Value" : "LM741CM", "Outline" : "DIP-8",
+  "X1000" : 16000, "Y1000" : 12000, "EndDeltaX" : 0, "EndDeltaY" : 1,
+  "Text" : { "X" : 0, "Y" : 0, "Angle" : 0, "Visible" : true },
+  "Group" : 0
+  }
+],
+"Links" : [
+],
+"Breaks" : [
+],
+"Wires" : [
+],
+"Nets" : [
+]
+}
