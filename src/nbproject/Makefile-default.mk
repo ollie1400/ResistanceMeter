@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=adc.c cdc_interrupts.c configuration_bits.c main.c pwm.c system.c usb_descriptors.c usb_interrupts.c D:/microchip_solutions_v2013-06-15/Microchip/USB/usb_device.c "D:/microchip_solutions_v2013-06-15/Microchip/USB/CDC Device Driver/usb_function_cdc.c"
+SOURCEFILES_QUOTED_IF_SPACED=D:/microchip_solutions_v2013-06-15/Microchip/USB/usb_device.c "D:/microchip_solutions_v2013-06-15/Microchip/USB/CDC Device Driver/usb_function_cdc.c" adc.c cdc_interrupts.c configuration_bits.c main.c pwm.c system.c usb_descriptors.c usb_interrupts.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/adc.o ${OBJECTDIR}/cdc_interrupts.o ${OBJECTDIR}/configuration_bits.o ${OBJECTDIR}/main.o ${OBJECTDIR}/pwm.o ${OBJECTDIR}/system.o ${OBJECTDIR}/usb_descriptors.o ${OBJECTDIR}/usb_interrupts.o ${OBJECTDIR}/_ext/9348587/usb_device.o ${OBJECTDIR}/_ext/1419641456/usb_function_cdc.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/adc.o.d ${OBJECTDIR}/cdc_interrupts.o.d ${OBJECTDIR}/configuration_bits.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/pwm.o.d ${OBJECTDIR}/system.o.d ${OBJECTDIR}/usb_descriptors.o.d ${OBJECTDIR}/usb_interrupts.o.d ${OBJECTDIR}/_ext/9348587/usb_device.o.d ${OBJECTDIR}/_ext/1419641456/usb_function_cdc.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/9348587/usb_device.o ${OBJECTDIR}/_ext/1419641456/usb_function_cdc.o ${OBJECTDIR}/adc.o ${OBJECTDIR}/cdc_interrupts.o ${OBJECTDIR}/configuration_bits.o ${OBJECTDIR}/main.o ${OBJECTDIR}/pwm.o ${OBJECTDIR}/system.o ${OBJECTDIR}/usb_descriptors.o ${OBJECTDIR}/usb_interrupts.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/9348587/usb_device.o.d ${OBJECTDIR}/_ext/1419641456/usb_function_cdc.o.d ${OBJECTDIR}/adc.o.d ${OBJECTDIR}/cdc_interrupts.o.d ${OBJECTDIR}/configuration_bits.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/pwm.o.d ${OBJECTDIR}/system.o.d ${OBJECTDIR}/usb_descriptors.o.d ${OBJECTDIR}/usb_interrupts.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/adc.o ${OBJECTDIR}/cdc_interrupts.o ${OBJECTDIR}/configuration_bits.o ${OBJECTDIR}/main.o ${OBJECTDIR}/pwm.o ${OBJECTDIR}/system.o ${OBJECTDIR}/usb_descriptors.o ${OBJECTDIR}/usb_interrupts.o ${OBJECTDIR}/_ext/9348587/usb_device.o ${OBJECTDIR}/_ext/1419641456/usb_function_cdc.o
+OBJECTFILES=${OBJECTDIR}/_ext/9348587/usb_device.o ${OBJECTDIR}/_ext/1419641456/usb_function_cdc.o ${OBJECTDIR}/adc.o ${OBJECTDIR}/cdc_interrupts.o ${OBJECTDIR}/configuration_bits.o ${OBJECTDIR}/main.o ${OBJECTDIR}/pwm.o ${OBJECTDIR}/system.o ${OBJECTDIR}/usb_descriptors.o ${OBJECTDIR}/usb_interrupts.o
 
 # Source Files
-SOURCEFILES=adc.c cdc_interrupts.c configuration_bits.c main.c pwm.c system.c usb_descriptors.c usb_interrupts.c D:/microchip_solutions_v2013-06-15/Microchip/USB/usb_device.c D:/microchip_solutions_v2013-06-15/Microchip/USB/CDC Device Driver/usb_function_cdc.c
+SOURCEFILES=D:/microchip_solutions_v2013-06-15/Microchip/USB/usb_device.c D:/microchip_solutions_v2013-06-15/Microchip/USB/CDC Device Driver/usb_function_cdc.c adc.c cdc_interrupts.c configuration_bits.c main.c pwm.c system.c usb_descriptors.c usb_interrupts.c
 
 
 CFLAGS=
@@ -100,6 +100,18 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
+${OBJECTDIR}/_ext/9348587/usb_device.o: D:/microchip_solutions_v2013-06-15/Microchip/USB/usb_device.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/9348587" 
+	@${RM} ${OBJECTDIR}/_ext/9348587/usb_device.o.d 
+	@${RM} ${OBJECTDIR}/_ext/9348587/usb_device.o 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/9348587/usb_device.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"D:/microchip_solutions_v2013-06-15/Microchip/Include/USB" -I"D:/microchip_solutions_v2013-06-15/Microchip/Include" -I"D:/Technical/Code - Git/MPLABX/ResistanceMeter/src" -MMD -MF "${OBJECTDIR}/_ext/9348587/usb_device.o.d" -o ${OBJECTDIR}/_ext/9348587/usb_device.o D:/microchip_solutions_v2013-06-15/Microchip/USB/usb_device.c    -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/_ext/1419641456/usb_function_cdc.o: D:/microchip_solutions_v2013-06-15/Microchip/USB/CDC\ Device\ Driver/usb_function_cdc.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1419641456" 
+	@${RM} ${OBJECTDIR}/_ext/1419641456/usb_function_cdc.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1419641456/usb_function_cdc.o 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1419641456/usb_function_cdc.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"D:/microchip_solutions_v2013-06-15/Microchip/Include/USB" -I"D:/microchip_solutions_v2013-06-15/Microchip/Include" -I"D:/Technical/Code - Git/MPLABX/ResistanceMeter/src" -MMD -MF "${OBJECTDIR}/_ext/1419641456/usb_function_cdc.o.d" -o ${OBJECTDIR}/_ext/1419641456/usb_function_cdc.o "D:/microchip_solutions_v2013-06-15/Microchip/USB/CDC Device Driver/usb_function_cdc.c"    -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD) 
+	
 ${OBJECTDIR}/adc.o: adc.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/adc.o.d 
@@ -148,19 +160,19 @@ ${OBJECTDIR}/usb_interrupts.o: usb_interrupts.c  nbproject/Makefile-${CND_CONF}.
 	@${RM} ${OBJECTDIR}/usb_interrupts.o 
 	@${FIXDEPS} "${OBJECTDIR}/usb_interrupts.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"D:/microchip_solutions_v2013-06-15/Microchip/Include/USB" -I"D:/microchip_solutions_v2013-06-15/Microchip/Include" -I"D:/Technical/Code - Git/MPLABX/ResistanceMeter/src" -MMD -MF "${OBJECTDIR}/usb_interrupts.o.d" -o ${OBJECTDIR}/usb_interrupts.o usb_interrupts.c    -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD) 
 	
+else
 ${OBJECTDIR}/_ext/9348587/usb_device.o: D:/microchip_solutions_v2013-06-15/Microchip/USB/usb_device.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/9348587" 
 	@${RM} ${OBJECTDIR}/_ext/9348587/usb_device.o.d 
 	@${RM} ${OBJECTDIR}/_ext/9348587/usb_device.o 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/9348587/usb_device.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"D:/microchip_solutions_v2013-06-15/Microchip/Include/USB" -I"D:/microchip_solutions_v2013-06-15/Microchip/Include" -I"D:/Technical/Code - Git/MPLABX/ResistanceMeter/src" -MMD -MF "${OBJECTDIR}/_ext/9348587/usb_device.o.d" -o ${OBJECTDIR}/_ext/9348587/usb_device.o D:/microchip_solutions_v2013-06-15/Microchip/USB/usb_device.c    -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD) 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/9348587/usb_device.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"D:/microchip_solutions_v2013-06-15/Microchip/Include/USB" -I"D:/microchip_solutions_v2013-06-15/Microchip/Include" -I"D:/Technical/Code - Git/MPLABX/ResistanceMeter/src" -MMD -MF "${OBJECTDIR}/_ext/9348587/usb_device.o.d" -o ${OBJECTDIR}/_ext/9348587/usb_device.o D:/microchip_solutions_v2013-06-15/Microchip/USB/usb_device.c    -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD) 
 	
 ${OBJECTDIR}/_ext/1419641456/usb_function_cdc.o: D:/microchip_solutions_v2013-06-15/Microchip/USB/CDC\ Device\ Driver/usb_function_cdc.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1419641456" 
 	@${RM} ${OBJECTDIR}/_ext/1419641456/usb_function_cdc.o.d 
 	@${RM} ${OBJECTDIR}/_ext/1419641456/usb_function_cdc.o 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1419641456/usb_function_cdc.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"D:/microchip_solutions_v2013-06-15/Microchip/Include/USB" -I"D:/microchip_solutions_v2013-06-15/Microchip/Include" -I"D:/Technical/Code - Git/MPLABX/ResistanceMeter/src" -MMD -MF "${OBJECTDIR}/_ext/1419641456/usb_function_cdc.o.d" -o ${OBJECTDIR}/_ext/1419641456/usb_function_cdc.o "D:/microchip_solutions_v2013-06-15/Microchip/USB/CDC Device Driver/usb_function_cdc.c"    -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD) 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1419641456/usb_function_cdc.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"D:/microchip_solutions_v2013-06-15/Microchip/Include/USB" -I"D:/microchip_solutions_v2013-06-15/Microchip/Include" -I"D:/Technical/Code - Git/MPLABX/ResistanceMeter/src" -MMD -MF "${OBJECTDIR}/_ext/1419641456/usb_function_cdc.o.d" -o ${OBJECTDIR}/_ext/1419641456/usb_function_cdc.o "D:/microchip_solutions_v2013-06-15/Microchip/USB/CDC Device Driver/usb_function_cdc.c"    -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD) 
 	
-else
 ${OBJECTDIR}/adc.o: adc.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/adc.o.d 
@@ -208,18 +220,6 @@ ${OBJECTDIR}/usb_interrupts.o: usb_interrupts.c  nbproject/Makefile-${CND_CONF}.
 	@${RM} ${OBJECTDIR}/usb_interrupts.o.d 
 	@${RM} ${OBJECTDIR}/usb_interrupts.o 
 	@${FIXDEPS} "${OBJECTDIR}/usb_interrupts.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"D:/microchip_solutions_v2013-06-15/Microchip/Include/USB" -I"D:/microchip_solutions_v2013-06-15/Microchip/Include" -I"D:/Technical/Code - Git/MPLABX/ResistanceMeter/src" -MMD -MF "${OBJECTDIR}/usb_interrupts.o.d" -o ${OBJECTDIR}/usb_interrupts.o usb_interrupts.c    -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/_ext/9348587/usb_device.o: D:/microchip_solutions_v2013-06-15/Microchip/USB/usb_device.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/9348587" 
-	@${RM} ${OBJECTDIR}/_ext/9348587/usb_device.o.d 
-	@${RM} ${OBJECTDIR}/_ext/9348587/usb_device.o 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/9348587/usb_device.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"D:/microchip_solutions_v2013-06-15/Microchip/Include/USB" -I"D:/microchip_solutions_v2013-06-15/Microchip/Include" -I"D:/Technical/Code - Git/MPLABX/ResistanceMeter/src" -MMD -MF "${OBJECTDIR}/_ext/9348587/usb_device.o.d" -o ${OBJECTDIR}/_ext/9348587/usb_device.o D:/microchip_solutions_v2013-06-15/Microchip/USB/usb_device.c    -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/_ext/1419641456/usb_function_cdc.o: D:/microchip_solutions_v2013-06-15/Microchip/USB/CDC\ Device\ Driver/usb_function_cdc.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1419641456" 
-	@${RM} ${OBJECTDIR}/_ext/1419641456/usb_function_cdc.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1419641456/usb_function_cdc.o 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1419641456/usb_function_cdc.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"D:/microchip_solutions_v2013-06-15/Microchip/Include/USB" -I"D:/microchip_solutions_v2013-06-15/Microchip/Include" -I"D:/Technical/Code - Git/MPLABX/ResistanceMeter/src" -MMD -MF "${OBJECTDIR}/_ext/1419641456/usb_function_cdc.o.d" -o ${OBJECTDIR}/_ext/1419641456/usb_function_cdc.o "D:/microchip_solutions_v2013-06-15/Microchip/USB/CDC Device Driver/usb_function_cdc.c"    -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD) 
 	
 endif
 

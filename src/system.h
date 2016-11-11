@@ -4,7 +4,7 @@
 // Defines ------------------------------------------------------------------------------------------------------------
 
 // system frequency, depends on things in configuration_bits.c
-#define SYS_FREQ 40000000L
+#define SYS_FREQ 20000000L
 
 #define FLASH_SIZE 10
 

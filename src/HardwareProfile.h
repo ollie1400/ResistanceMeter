@@ -57,7 +57,7 @@
 #define mLED_USB_Configured_Off() mPORTBClearBits(LED_CONFIGURED)
 
 // general purpose LED set
-#define mLED_USB_GP_On() mPORTBSetBits(LED_GP)
-#define mLED_USB_GP_Off() mPORTBClearBits(LED_GP)
+#define mLED_USB_GP_On() mPORTBClearBits(LED_GP)
+#define mLED_USB_GP_Off() mPORTBSetBits(LED_GP)
 
 #endif

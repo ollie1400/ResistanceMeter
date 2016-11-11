@@ -34,11 +34,15 @@ void InitialiseADC(void)
     //TRISAbits.TRISA0 = 1;
     //TRISAbits.TRISA1 = 1;
     
+    //ANSELBbits.ANSB1 = 1;   // set RB3 (AN5) to analog
+    ANSELBbits.ANSB2 = 1;   // set RB2 (AN4) to analog
     ANSELBbits.ANSB3 = 1;   // set RB3 (AN5) to analog
+    ANSELBbits.ANSB15 = 1;   // set RB3 (AN9) to analog
+    
     AD1CON1CLR = 0x8000;    // disable ADC before configuration
     AD1CON1 = 0x00E0;       // internal counter ends sampling and starts conversion (auto-convert), manual sample
-    //AD1CON2bits.VCFG = 0;   // AD1CON2<15:13> set voltage reference to pins AVSS/AVDD
-    AD1CON2bits.VCFG = 0b011;   // AD1CON2<15:13> set voltage reference to pins External Vref + and -
+    AD1CON2bits.VCFG = 0;   // AD1CON2<15:13> set voltage reference to pins AVSS/AVDD
+    //AD1CON2bits.VCFG = 0b011;   // AD1CON2<15:13> set voltage reference to pins External Vref + and -
     AD1CON3 = 0x0f01;       // TAD = 4*TPB, acquisition time = 15*TAD
 
     // configure pins as inputs maybe?

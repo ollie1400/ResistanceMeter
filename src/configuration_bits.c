@@ -14,28 +14,19 @@
 #pragma config FUSBIDIO = OFF           // USB USID Selection (Controlled by Port Function)
 #pragma config FVBUSONIO = OFF          // USB VBUS ON Selection (Controlled by Port Function)
 
-// DEVCFG2
-/*
- * For 48MHz USB Clock; POSC = 16MHz
- * 48MHz = POSC / UPLLIDIV * PLLx24 / 2
- *       = 16 / 4 * 24 / 2
- */
 #pragma config UPLLIDIV = DIV_4         // USB PLL Input Divider (4x Divider)
 #pragma config UPLLEN = ON              // USB PLL Enable (Enabled)
-/*
- * For 40MHz SYSCLK; POSC = 16MHz
- * 40MHz = POSC / FPLLIDIV * FPPLMUL / FPLLODIV
- *       = 16MHz / DIV_3 * MUL_20 / DIV_2
- *       = 16 / 4 * 20 / 2
- */
+// USB:  16MHz (crystal) * (1/4) * (24) * (1/2) = 48MHz
+
 #pragma config FPLLIDIV = DIV_4         // PLL Input Divider (3x Divider)
 #pragma config FPLLMUL = MUL_20         // PLL Multiplier (24x Multiplier)
-#pragma config FPLLODIV = DIV_2         // System PLL Output Clock Divider (PLL Divide by 2)
+#pragma config FPLLODIV = DIV_4         // System PLL Output Clock Divider (PLL Divide by 2)
+// PLL: 16MHz (crystal) * (1/4) * (20) * (1/4) = 20MHz
 
 // DEVCFG1
 #pragma config FNOSC = PRIPLL           // Oscillator Selection Bits (Primary Osc w/PLL (XT+,HS+,EC+PLL))
 #pragma config FSOSCEN = OFF            // Secondary Oscillator Enable (Disabled)
-#pragma config IESO = OFF               // Internal/External Switch Over (Enabled)
+#pragma config IESO = ON               // Internal/External Switch Over (Enabled)
 #pragma config POSCMOD = HS             // Primary Oscillator Configuration (HS osc mode)
 #pragma config OSCIOFNC = OFF           // CLKO Output Signal Active on the OSCO Pin (Disabled)
 #pragma config FPBDIV = DIV_1           // Peripheral Clock Divisor (Pb_Clk is Sys_Clk/8)
