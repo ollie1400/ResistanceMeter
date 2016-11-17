@@ -33,6 +33,7 @@ int main(void)
     InitialiseADC();
 
     mLED_USB_GP_Off();
+    mTransistorOff();
     /// this is all unnecessary, just connect how we need it
     //ODCBbits.ODCB5 = 1;
     //CNPUBbits.CNPUB5 = 0;
@@ -92,13 +93,11 @@ static void ProcessIO(void)
     char scratch[5] = {0};
     int scratchLength = 5;
     int adc = 0;
-    int femtoGain;
     const int bufferSize = 64;
-    int ledon = 0;
-    int memOut;
-    int memIn[FLASH_SIZE];
-    const char* message = "Hello world!";
 
+    // reply to message?
+    BOOL reply = TRUE;
+    
     if (USBDeviceState < CONFIGURED_STATE || USBSuspendControl == 1) return;
 
 
@@ -128,7 +127,7 @@ static void ProcessIO(void)
                 {
                     int numToCopy = len - ADC_READ_COMSTR_LEN;
                     memset(scratch,0,scratchLength);
-                    numToCopy = numToCopy > 4 ? 4 : numToCopy;
+                    numToCopy = numToCopy > scratchLength ? scratchLength : numToCopy;
                     strncpy(scratch,USB_Out_Buffer + ADC_READ_COMSTR_LEN + 1, numToCopy);  // copy from the message + command length +1 to skip space
                     int channel = atoi(scratch);
 //    
@@ -149,7 +148,25 @@ static void ProcessIO(void)
             } else if (mUSBMsgIs("*IDN?"))
             {
                 putrsUSBUSART("ResistanceMeter" TERMCHAR);
-            } else if (mUSBMsgIs("ping"))
+                
+            }
+            
+            // turn transistor on
+            else if (mUSBMsgIs("transistor on"))
+            {
+                mTransistorOn();
+                if(reply) putrsUSBUSART("transistor on" TERMCHAR);
+            }
+            
+            // turn transistor off
+            else if (mUSBMsgIs("transistor off"))
+            {
+                mTransistorOff();
+                if(reply) putrsUSBUSART("transistor off" TERMCHAR);  
+            }
+            
+            // respond to ping
+            else if (mUSBMsgIs("ping"))
             {
                 putrsUSBUSART("pong" TERMCHAR);
             } else {
@@ -168,7 +185,7 @@ static void ProcessIO(void)
             memset(USB_Out_Buffer, 0, sizeof(USB_Out_Buffer));
         }
     } else {
-        mLED_USB_Configured_Off();
+        //mLED_USB_Configured_Off();
     }
 
     CDCTxService();
@@ -183,9 +200,9 @@ void UpdateStatusDisplay(void)
     
     if (USBDeviceState == CONFIGURED_STATE)
     {
-        mLED_USB_Configured_On();
+        //mLED_USB_Configured_On();
     } else {
-        mLED_USB_Configured_Off();
+        //mLED_USB_Configured_Off();
     }
 }
 

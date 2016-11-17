@@ -21,7 +21,7 @@ void InitializeSystem(void)
     //LATBbits.LATB2 = 1;
     //ODCBbits.ODCB5 = 1;
     mInitLEDs();
-
+    mInitTransistor();
     // set pins to open drain config
     //ODCBbits.ODCB5 = 1;
     //ODCBbits.ODCB7 = 1;

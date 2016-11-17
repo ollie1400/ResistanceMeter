@@ -41,8 +41,8 @@ void InitialiseADC(void)
     
     AD1CON1CLR = 0x8000;    // disable ADC before configuration
     AD1CON1 = 0x00E0;       // internal counter ends sampling and starts conversion (auto-convert), manual sample
-    AD1CON2bits.VCFG = 0;   // AD1CON2<15:13> set voltage reference to pins AVSS/AVDD
-    //AD1CON2bits.VCFG = 0b011;   // AD1CON2<15:13> set voltage reference to pins External Vref + and -
+    //AD1CON2bits.VCFG = 0;   // AD1CON2<15:13> set voltage reference to pins AVSS/AVDD
+    AD1CON2bits.VCFG = 0b001;   // AD1CON2<15:13> set voltage reference to pins External Vref + and AVss (P.215 in datasheet)
     AD1CON3 = 0x0f01;       // TAD = 4*TPB, acquisition time = 15*TAD
 
     // configure pins as inputs maybe?
