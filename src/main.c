@@ -28,6 +28,7 @@ void UpdateStatusDisplay(void);
  */
 int main(void)
 {
+    //char tst[] = "hello " TERMCHAR;
     InitializeSystem();
     //InitialisePWM();
     InitialiseADC();
@@ -81,6 +82,14 @@ int main(void)
     }
 }
 
+
+// reply to message?
+int reply = 1;
+// echo the command?
+int echo = 0;
+// transistor state?
+int transistor = 0;
+
 /**
  * ProcessIO
  */
@@ -89,14 +98,11 @@ static void ProcessIO(void)
     BYTE numBytesRead;
     float newDuty;
     int pos;
-    char returnMessage[64] = {0};
+    char returnMessage[2*USB_OUT_BUFFER_SIZE] = {0};
     char scratch[5] = {0};
     int scratchLength = 5;
     int adc = 0;
-    const int bufferSize = 64;
-
-    // reply to message?
-    BOOL reply = TRUE;
+    const int bufferSize = 2*USB_OUT_BUFFER_SIZE;
     
     if (USBDeviceState < CONFIGURED_STATE || USBSuspendControl == 1) return;
 
@@ -113,10 +119,53 @@ static void ProcessIO(void)
         numBytesRead = getsUSBUSART(USB_Out_Buffer, bufferSize);
         if (numBytesRead > 0) {
 
+            
+//            // echo?
+//            if (echo)
+//            {
+//                memset(returnMessage, 0, USB_OUT_BUFFER_SIZE);
+//                strcpy(returnMessage, USB_Out_Buffer);
+//                strcat(returnMessage, TERMCHAR);
+//                putrsUSBUSART(returnMessage);
+//            }
+            
+            
+            
             // clear the message if there is one
             memset(returnMessage, 0, sizeof(returnMessage));
             
-            if (mUSBMsgIndexOf(ADC_READ_COMSTR) == 0)
+            
+            /////// REPLY ///////////////////////
+            if (mUSBMsgIs("reply on" TERMCHAR))
+            {
+                reply = 1;
+                if(reply) putrsUSBUSART("reply on" TERMCHAR);
+            }
+            else if (mUSBMsgIs("reply off" TERMCHAR))
+            {
+                reply = 0;
+                if(reply) putrsUSBUSART("reply off" TERMCHAR);
+            }
+            else if (mUSBMsgIs("reply?" TERMCHAR))
+            {
+                sprintf(returnMessage, "reply = %u" TERMCHAR, reply);
+                putrsUSBUSART(returnMessage);
+            }
+            
+//            /////// ECHO ///////////////////////
+//            else if (mUSBMsgIs("echo on"))
+//            {
+//                echo = TRUE;
+//                if(reply) putrsUSBUSART("echo on" TERMCHAR);
+//            }
+//            else if (mUSBMsgIs("echo off"))
+//            {
+//                echo = FALSE;
+//                if(reply) putrsUSBUSART("echo off" TERMCHAR);
+//            }
+            
+            
+            else if (mUSBMsgIndexOf(ADC_READ_COMSTR) == 0)
             {
                 int len = strlen(USB_Out_Buffer);
                 if (len == ADC_READ_COMSTR_LEN)
@@ -139,34 +188,56 @@ static void ProcessIO(void)
                     {
 //    
                         adc = analogRead(channel);  // read AN5 using ADC
-                        sprintf(returnMessage, "channel %u = %u" TERMCHAR, channel, adc);
+                        if(reply)
+                        {
+                            sprintf(returnMessage, "channel %u = %u" TERMCHAR, channel, adc);
+                        } else {
+                            sprintf(returnMessage, "%u" TERMCHAR, adc);
+                        }
                     }
                 }
                 
                 putrsUSBUSART(returnMessage);
                 
-            } else if (mUSBMsgIs("*IDN?"))
+            } else if (mUSBMsgIs("*IDN?" TERMCHAR))
             {
                 putrsUSBUSART("ResistanceMeter" TERMCHAR);
-                
             }
             
+          
+            /////////// TRANSISTOR //////////////
+            
             // turn transistor on
-            else if (mUSBMsgIs("transistor on"))
+            else if (mUSBMsgIs("transistor:set on" TERMCHAR))
             {
                 mTransistorOn();
+                transistor = 1;
                 if(reply) putrsUSBUSART("transistor on" TERMCHAR);
             }
             
             // turn transistor off
-            else if (mUSBMsgIs("transistor off"))
+            else if (mUSBMsgIs("transistor:set off" TERMCHAR))
             {
                 mTransistorOff();
+                transistor = 0;
                 if(reply) putrsUSBUSART("transistor off" TERMCHAR);  
             }
+            else if (mUSBMsgIs("transistor?" TERMCHAR))
+            {
+                if (reply)
+                {
+                    sprintf(returnMessage, "transistor = %u" TERMCHAR, transistor);
+                } else {
+                    sprintf(returnMessage, "%u" TERMCHAR, transistor);
+                }
+                putrsUSBUSART(returnMessage);
+            }
+            
+            
+            
             
             // respond to ping
-            else if (mUSBMsgIs("ping"))
+            else if (mUSBMsgIs("ping" TERMCHAR))
             {
                 putrsUSBUSART("pong" TERMCHAR);
             } else {
@@ -174,7 +245,7 @@ static void ProcessIO(void)
                 putrsUSBUSART("Unknown command" TERMCHAR);
                 // blink LED quickly
                 mLED_USB_GP_Off();
-                delay_us(1000);
+                delay_us(100000);
                 mLED_USB_GP_On();
             }
 
